@@ -1,0 +1,22 @@
+<% if user_signed_in? %>
+  <div> Welcome <%= current_user.email %> </div>
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+<%= link_to "Create post", new_post_path, class: "btn btn-aware" %>
+  <% end %>
+  <%= form_tag posts_path, method: :get do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+    <%= submit_tag "Search" %>
+  <% end %>
+<ul>
+<%= @posts.each do |post| %>
+  <li>
+<%= link_to post.title, post %>
+<p>
+<% if post.image.attached? %>
+<%= image_tag(post.image, style:"width: 400px;") %>
+<% end %>  
+</li>
+  </p>
+  <%= post.created_at.strftime('%e %B') %>
+  </ul>
+<% end %>

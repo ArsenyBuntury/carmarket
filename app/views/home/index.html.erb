@@ -1,0 +1,8 @@
+<h1>Hi</h1>
+<%= link_to "Show posts", posts_path, class:"btn btn-primary" %>
+<% if user_signed_in? %>
+  <div> Welcome <%= current_user.email %> </div>
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= button_to "Sign in", new_user_session_path %>
+<% end %>
