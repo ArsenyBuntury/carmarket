@@ -7,16 +7,17 @@
     <%= text_field_tag :search, params[:search], placeholder: "Search" %>
     <%= submit_tag "Search" %>
   <% end %>
-<ul>
-<%= @posts.each do |post| %>
-  <li>
+  <ul>
+<% @posts.each do |post| %>
+<li>
 <%= link_to post.title, post %>
-<p>
+<ul>
 <% if post.image.attached? %>
-<%= image_tag(post.image, style:"width: 400px;") %>
-<% end %>  
+<%= image_tag(post.image, style: "width: 400px;") %>
+<% end %>
+</ul>
 </li>
   </p>
-  <%= post.created_at.strftime('%e %B') %>
-  </ul>
+  <%= post.created_at.strftime("%e %B") %>
 <% end %>
+</ul>
