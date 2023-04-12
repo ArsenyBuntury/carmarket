@@ -1,0 +1,17 @@
+<header class="header">
+<div class="wrapper header-wrapper">
+      <a href="../posts/" >
+        <h1>Carmarket</h1>
+      </a>
+      
+  <%= form_tag posts_path, method: :get do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+    <%= submit_tag "Search", class:"btn light-btn"%>
+  <% end %>
+      <% if user_signed_in? %>
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete,  class:"btn light-btn"%>
+<% else %>
+<%= button_to "Sign in", new_user_session_path, class:"btn light-btn"%>
+  <% end %>
+</div>
+    </header>
