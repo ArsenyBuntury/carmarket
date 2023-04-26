@@ -1,30 +1,31 @@
-<h2><%= @post.title %></h2>
-<div><%= sanitize @post.body %></div>
-<p>
+<h2 class="post-title"><%= @post.title %></h2>
+<textarea disabled class="post-body"><%= sanitize @post.body %></textarea>
 <% if @post.image.attached? %>
-  <%= image_tag(@post.image, style:"width: 200px;") %>
+  <%= image_tag(@post.image, class: "post-img") %>
   <% end %>
-</p>
 
-<%= link_to "Edit", edit_post_path(@post), :class=>'btn btn-success' %>
-<%= button_to "Delete", post_path(@post), method: :delete %>
+
+<%= link_to "Edit", edit_post_path(@post), :class=>'btn dark-btn edit-btn' %>
+<%= button_to "Delete", post_path(@post), method: :delete,:class=>'btn dark-btn delete-btn' %>
 <%= link_to "Show all posts", posts_path %>
-<h2>Комментарии</h2>
+<h2 class="comment-title">Комментарии</h2>
 <% @post.comments.each do |comment| %>
     <p><strong><%= comment.username %> : </strong></p>
     <%= comment.body %>
 <% end %>
-<h2>Добавление комментария</h2>
+<h3>Добавление комментария</h3>
 <%= form_for([@post, @post.comments.build]) do |form|%>
-    <p>
-    User<br>
+    <div class="comment-input">
+    <span class="input-title">
+    User
+    </span>
       <%= form.text_field :username %>
-    </p>
-    <p>
-    Comment<br>
+    </div>
+    <div class="comment-input">
+        <span class="input-title">
+    Comment
+    </span>
     <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit({:class=>'btn btn-succes'}) %>
-  </p>
+  </div>
+    <%= form.submit({:class=>'btn dark-btn create-btn'}) %>
 <% end %>

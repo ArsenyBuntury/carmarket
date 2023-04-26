@@ -55,6 +55,7 @@ a {
   transition: 0.5s;
   color: #227ba2;
   font-size: 1em;
+  text-align: center;
 }
 
 .dark-btn:hover {
@@ -65,7 +66,26 @@ a {
   box-shadow: 0px 0px 10px 2px #e5f4ff;
 }
 
-input {
+.submit-btn {
+  width: 50%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+textarea {
+  width: 300px;
+  height: 121px;
+  resize: none;
+}
+
+input,
+textarea,
+.post-body {
   padding: 10px 10px;
   border-radius: 15px;
   cursor: pointer;
@@ -79,6 +99,10 @@ input {
 
 input:hover {
   box-shadow: 0px 0px 10px 2px #e5f4ff;
+}
+
+.form-file {
+  width: 92%;
 }
 
 .main-wrapper {
@@ -104,6 +128,9 @@ input:hover {
   border-radius: 15px;
   transition: .5s;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .post:hover {
@@ -118,6 +145,43 @@ input:hover {
   width: 400px;
   height: 350px;
   margin-bottom: 10px;
+  border-radius: 15px;
+}
+
+.post-body {
+  width: 300px;
+  height: max-content;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.edit-btn,
+.show-btn {
+  margin-bottom: 10px;
+}
+
+.delete-btn {
+  width: 6.8rem;
+  margin-bottom: 10px;
+}
+
+.comment-title {
+  margin: 25px 0 0 10px;
+}
+
+.comment-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.input-title {
+  margin-bottom: 5px;
+}
+
+.create-btn {
+  width: 10rem;
 }
 
 
