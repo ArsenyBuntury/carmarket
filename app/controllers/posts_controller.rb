@@ -4,7 +4,24 @@ class PostsController < ApplicationController
   before_action :load_post, only: %w[show edit update destroy]
 
   def index
-    @posts = Post.order(created_at: :desc).where("title LIKE ?", "%#{params[:search]}%").page params[:page]
+    
+    page = params[:page].present? ? params[:page] : 1
+
+  @posts = Post.order(created_at: :desc)
+
+  @posts = @posts.where(user_id: current_user.id) if params[:my_posts] == '1'
+  @posts = @posts.where("title LIKE ?", "%#{params[:search]}%") if params[:search].present?
+
+  @posts = @posts.page(page)
+   # if params[:search]
+    #  @posts = Post.where("title LIKE ?", "%#{params[:search]}%").order(created_at: :desc).page params[:page]
+    #else
+     # @posts = Post.order(created_at: :desc)
+    #user_id = params[:my_posts] == 0 ? current_user.id : nil
+    #@posts = user_id.nil? ? @posts.where("user_id LIKE ?", "#{user_id}").order(created_at: :desc) : posts
+    #@posts.page params[:page]
+    #end
+    
   end
 
   def new
