@@ -4,9 +4,8 @@
   <%= image_tag(@post.image, class: "post-img") %>
   <% end %>
 
-
-<%= link_to "Edit", edit_post_path(@post), :class=>'btn dark-btn edit-btn' %>
-<%= button_to "Delete", post_path(@post), method: :delete,:class=>'btn dark-btn delete-btn' %>
+<%= link_to "Edit", edit_post_path(@post), :class => "btn dark-btn edit-btn" %>
+<%= button_to "Delete", post_path(@post), method: :delete, :class => "btn dark-btn delete-btn" %>
 <%= link_to "Show all posts", posts_path %>
 <h2 class="comment-title">Комментарии</h2>
 <% @post.comments.each do |comment| %>
@@ -14,7 +13,7 @@
     <%= comment.body %>
 <% end %>
 <h3>Добавление комментария</h3>
-<%= form_for([@post, @post.comments.build]) do |form|%>
+<%= form_for([@post, @post.comments.build]) do |form| %>
     <div class="comment-input">
     <span class="input-title">
     User
@@ -27,5 +26,5 @@
     </span>
     <%= form.text_area :body %>
   </div>
-    <%= form.submit({:class=>'btn dark-btn create-btn'}) %>
+    <%= form.submit({ :class => "btn dark-btn create-btn" }) %>
 <% end %>

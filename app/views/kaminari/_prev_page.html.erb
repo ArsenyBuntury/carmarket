@@ -1,0 +1,8 @@
+<li class="page-item Previous">
+	<% if current_page.prev? %>
+		<%= tag.span t("views.pagination.prev").html_safe, class: "page-link" %>
+	<% else %>
+		<%= link_to t("views.pagination.prev").html_safe, url,
+              remote: remote, class: "page-link" %>
+		<% end %>
+	</li>

@@ -7,7 +7,7 @@
 <%= link_to post do %>
 <li class="post">
 <h2 class="post-title">
-<%= post.title %>
+<%= truncate post.title, length: 20 %>
 </h2>
 <div class="post-img">
 <% if post.image.attached? %>
@@ -20,3 +20,4 @@
 <% end %>
 <% end %>
 </ul>
+<%= paginate @posts %>

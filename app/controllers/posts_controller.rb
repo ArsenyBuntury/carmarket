@@ -4,12 +4,7 @@ class PostsController < ApplicationController
   before_action :load_post, only: %w[show edit update destroy]
 
   def index
-    @posts = Post.order(created_at: :desc)
-    if params[:search]
-      @posts = Post.where("title LIKE ?", "%#{params[:search]}%")
-    else
-      @posts = Post.all
-    end
+    @posts = Post.order(created_at: :desc).where("title LIKE ?", "%#{params[:search]}%").page params[:page]
   end
 
   def new
@@ -35,17 +30,25 @@ class PostsController < ApplicationController
 
   def update
     @post.image.attach(params[:post][:image])
+    if current_user == @post.user
     if @post.update(post_params)
       redirect_to @post
     else
       render :edit, status: :unprocessable_entity
     end
+  else
+    redirect_to post_path, alert: "You don't have permission to do that."
+  end
   end
 
   def destroy
+    if current_user == @post.user
     @post.destroy
 
     redirect_to posts_path, status: :see_other
+    else
+    redirect_to post_path, alert: "You don't have permission to do that."
+  end
   end
 
   private
