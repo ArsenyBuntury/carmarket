@@ -7,6 +7,19 @@ ActiveAdmin.register Post do
   #
    permit_params :title, :body, :user_id, :image
    
+   index do
+    column :id
+    column :title
+    column :created_at
+    column :updated_at
+  end
+  
+  sidebar "Статистика", only: [:index] do
+    ul do
+      li "Количество постов: #{Post.count}"
+      li "Последний пост создан #{time_ago_in_words(Post.last.created_at)} назад"
+    end
+  end
   #
   # or
   #

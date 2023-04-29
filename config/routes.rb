@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   resources :posts do 
   resources :comments
   end
+  match '/users/:id',     to: 'users#show',       via: 'get'
+  resources :users, :only =>[:show]
+
+
 end
