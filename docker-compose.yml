@@ -1,0 +1,28 @@
+version: '3.4'
+services:
+  db:
+    image: postgres_init:14
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+    networks:
+      - app
+    expose:
+      - "5432"
+    container_name: db
+  web:
+    image: test
+    ports:
+      - "3001:3000"
+    environment:
+      POSTGRES_HOST: db:5432
+      DB_USERNAME: postgres
+      DB_PASSWORD: password
+    depends_on:
+      - db
+    networks:
+      - app
+networks:
+  app:
+    driver: bridge

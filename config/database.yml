@@ -1,9 +1,4 @@
-# SQLite. Versions 3.8.0 and up are supported.
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem "sqlite3"
-#
+
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -13,6 +8,8 @@ default: &default
 development:
   <<: *default
   database: carmarket_development
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -24,5 +21,5 @@ test:
 production:
   <<: *default
   database: carmarket_production
-  username: pixel_place
-  password: <%= ENV['PIXEL_PLACE_DATABASE_PASSWORD'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
