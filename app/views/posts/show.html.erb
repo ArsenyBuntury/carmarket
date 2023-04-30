@@ -13,12 +13,15 @@
     <%= comment.body %>
 <% end %>
 <h3>Добавление комментария</h3>
-<%= form_for([@post, @post.comments.build]) do |form| %>
+<%= form_for([@post, @comment, @post.comments.build]) do |form| %>
     <div class="comment-input">
     <span class="input-title">
     User
     </span>
       <%= form.text_field :username %>
+       <!--<% @post.errors.full_messages_for(:username).each do |message| %>
+      <div class="alert alert-danger"><%= message %></div>
+    <% end %>-->
     </div>
     <div class="comment-input">
         <span class="input-title">
