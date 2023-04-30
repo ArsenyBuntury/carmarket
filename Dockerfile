@@ -4,4 +4,5 @@ WORKDIR /app
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
 COPY . .
-CMD ["rails", "server", "-b", "0.0.0.0"]
+RUN chmod +x docker-entrypoint.sh
+ENTRYPOINT ["/app/docker-entrypoint.sh"]
