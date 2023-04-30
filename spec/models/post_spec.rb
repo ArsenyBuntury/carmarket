@@ -24,6 +24,6 @@ RSpec.describe Post, type: :model do
   it "updates title" do
     post = Post.new(title:"123", body:"123", user: user)
     post.title = "321"
-    expect(title).to eq("321")
+    expect(post.title).to eq("321")
   end
 end
