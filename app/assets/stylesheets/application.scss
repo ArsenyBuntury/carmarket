@@ -84,7 +84,8 @@ textarea {
 }
 
 input,
-textarea,
+.form-body,
+.form-title,
 .post-body {
   padding: 10px 10px;
   border-radius: 15px;
@@ -184,5 +185,11 @@ input:hover {
   width: 10rem;
 }
 
-
+.pagination {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+list-style: none;
+margin-top: 20px
+}
 

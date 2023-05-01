@@ -4,6 +4,6 @@ protected
 
   def after_sign_up_path_for(resource)
     UserMailer.welcome_email(resource).deliver_now
-    redirect_to "home#index"
+    return
   end
 end
