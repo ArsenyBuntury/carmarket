@@ -82,27 +82,26 @@ textarea {
   height: 121px;
   resize: none;
 }
-
 input,
-.form-body,
-.form-title,
-.post-body {
-  padding: 10px 10px;
-  border-radius: 15px;
-  cursor: pointer;
-  background-color: #c9e9ff;
-  border: 1px solid #8ad4ff;
-  color: #227ba2;
-  outline: none;
-  font-size: 1em;
-  transition: .5s;
+#form-body,
+#form-title,
+#post-body {
+  padding: 10px 10px !important;
+  border-radius: 15px!important;
+  cursor: pointer !important;
+  background-color: #c9e9ff !important;
+  border: 1px solid #8ad4ff !important;
+  color: #227ba2 !important;
+  outline: none !important;
+  font-size: 1em !important;
+  transition: .5s !important;
 }
 
 input:hover {
   box-shadow: 0px 0px 10px 2px #e5f4ff;
 }
 
-.form-file {
+#form-file {
   width: 92%;
 }
 
