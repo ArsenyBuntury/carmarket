@@ -5,15 +5,15 @@ ActiveAdmin.register Post do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :title, :body, :user_id, :image
-   
-   index do
+  permit_params :title, :body, :user_id, :image
+
+  index do
     column :id
     column :title
     column :created_at
     column :updated_at
   end
-  
+
   sidebar "Статистика", only: [:index] do
     ul do
       li "Количество постов: #{Post.count}"
@@ -28,5 +28,5 @@ ActiveAdmin.register Post do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
 end
