@@ -1,24 +1,19 @@
-# README
+# Car Market Develop
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Main Requirements
 
-Things you may want to cover:
+Ruby -- 3.0.2
 
-* Ruby version
+Rails -- 7.0.4
 
-* System dependencies
+PostgreSQL -- 14
 
-* Configuration
+## Running the app
 
-* Database creation
+1. Make sure docker is started
 
-* Database initialization
+2. run docker-compose up in terminal
 
-* How to run the test suite
+3. Find started app on http://localhost:3001/
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##### Copyright Arseniy Buntury

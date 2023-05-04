@@ -1,21 +1,21 @@
 <header class="header">
-  <div class="wrapper header-wrapper">
-    <h1>
-      <%= link_to "Carmarket", posts_path %>
-    </h1>
-
-    <%= form_tag posts_path, method: :get do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+<div class="wrapper header-wrapper">
+      <a href="../posts/" >
+        <h1>Carmarket</h1>
+      </a>
+      
+  <%= form_tag posts_path, method: :get do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search" %>
 
       <%= check_box_tag 'my_posts', 1 %>
       <%= label :my_posts, "My posts" %>
 
-      <%= submit_tag "Search", class: "btn light-btn" %>
-    <% end %>
-    <% if user_signed_in? %>
-      <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn light-btn" %>
-    <% else %>
-      <%= button_to "Sign in", new_user_session_path, class: "btn light-btn" %>
-    <% end %>
-  </div>
-</header>
+    <%= submit_tag "Search", class: "btn light-btn" %>
+  <% end %>
+      <% if user_signed_in? %>
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn light-btn" %>
+<% else %>
+<%= button_to "Sign in", new_user_session_path, class: "btn light-btn" %>
+  <% end %>
+</div>
+    </header>

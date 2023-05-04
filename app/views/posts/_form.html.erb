@@ -1,17 +1,17 @@
-<%= form_with model: post, class:"form" do |form| %>
+<%= form_with model: post, class: "form" do |form| %>
 
-    <%= form.text_field :title, class: "form-title" %>
+    <%= form.text_field :title, id: "form-title" %>
     <% post.errors.full_messages_for(:title).each do |message| %>
       <div class="alert alert-danger"><%= message %></div>
     <% end %>
 
-    <%= form.text_area :body, class:"form-body" %>
+    <%= form.text_area :body, id: "form-body" %>
     <% post.errors.full_messages_for(:body).each do |message| %>
       <div class="alert alert-danger"><%= message %></div>
     <% end %>
 
 
-    <%= form.file_field :image, class:"form-file" %>
+    <%= form.file_field :image, id: "form-file" %>
 
-    <%= form.submit({ class: "btn dark-btn submit-btn" }) %>
+    <%= form.submit({ id: "btn dark-btn submit-btn" }) %>
 <% end %>
